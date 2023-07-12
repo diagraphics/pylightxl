@@ -66,7 +66,7 @@ import os
 import sys
 import shutil
 import warnings
-from xml.etree import cElementTree as ET
+from lxml import etree as ET
 import time
 from datetime import datetime, timedelta
 
