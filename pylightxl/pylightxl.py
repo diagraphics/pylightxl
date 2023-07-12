@@ -231,7 +231,8 @@ def readxl_get_workbook(fn):
             for prefix, uri in ns.items():
                 ET.register_namespace(prefix, uri)
 
-        with f_zip.open('xl/workbook.xml', 'r') as file:
+            file.seek(0)
+
             tree = ET.parse(file)
             root = tree.getroot()
 
@@ -287,7 +288,8 @@ def readxl_get_workbookxmlrels(fn):
             for prefix, uri in ns.items():
                 ET.register_namespace(prefix, uri)
 
-        with f_zip.open('xl/_rels/workbook.xml.rels', 'r') as file:
+            file.seek(0)
+
             tree = ET.parse(file)
             root = tree.getroot()
 
@@ -325,7 +327,8 @@ def readxl_get_sharedStrings(fn):
             for prefix, uri in ns.items():
                 ET.register_namespace(prefix, uri)
 
-        with f_zip.open('xl/sharedStrings.xml', 'r') as file:
+            file.seek(0)
+
             tree = ET.parse(file)
             root = tree.getroot()
 
@@ -363,7 +366,8 @@ def readxl_get_styles(fn):
             for prefix, uri in ns.items():
                 ET.register_namespace(prefix, uri)
 
-        with f_zip.open('xl/styles.xml', 'r') as file:
+            file.seek(0)
+
             tree = ET.parse(file)
             root = tree.getroot()
 
@@ -427,7 +431,8 @@ def readxl_get_ws_rels(fn, fn_ws):
             for prefix, uri in ns.items():
                 ET.register_namespace(prefix, uri)
 
-        with f_zip.open('xl/' + fn_wsrels, 'r') as file:
+            file.seek(0)
+
             tree = ET.parse(file)
             root = tree.getroot()
 
@@ -446,7 +451,8 @@ def readxl_get_ws_rels(fn, fn_ws):
                 for prefix, uri in ns.items():
                     ET.register_namespace(prefix, uri)
 
-            with f_zip.open('xl/' + comment_fn, 'r') as file:
+                file.seek(0)
+
                 tree = ET.parse(file)
                 root = tree.getroot()
 
@@ -492,7 +498,8 @@ def readxl_scrape(fn, fn_ws, sharedString, styles, comments):
             for prefix, uri in ns.items():
                 ET.register_namespace(prefix, uri)
 
-        with f_zip.open('xl/' + fn_ws, 'r') as file:
+            file.seek(0)
+
             tree = ET.parse(file)
             root = tree.getroot()
 
